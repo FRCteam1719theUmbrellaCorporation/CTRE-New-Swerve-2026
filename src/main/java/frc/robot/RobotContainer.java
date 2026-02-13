@@ -30,7 +30,7 @@ import frc.robot.subsystems.CommandSwerveDrivetrain;
 public class RobotContainer {
     private double MaxSpeedMultiplier = 0.2;
     private double MaxSpeed = MaxSpeedMultiplier * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
-    private double MaxAngularRate = RotationsPerSecond.of(0.5).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
+    private double MaxAngularRate = RotationsPerSecond.of(0.2).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
 
     private final SendableChooser<Command> autoChooser;
 
@@ -88,8 +88,8 @@ public class RobotContainer {
 
 
     //Next lines were added from CTRE documentation to see sysids
-    joystick.leftBumper().onTrue(Commands.runOnce(SignalLogger::start));
-    joystick.rightBumper().onTrue(Commands.runOnce(SignalLogger::stop));
+    // joystick.leftBumper().onTrue(Commands.runOnce(SignalLogger::start));
+    // joystick.rightBumper().onTrue(Commands.runOnce(SignalLogger::stop));
 
 /*
  * Joystick Y = quasistatic forward
@@ -97,10 +97,10 @@ public class RobotContainer {
  * Joystick B = dynamic forward
  * Joystick X = dyanmic reverse
  */
-        joystick.y().whileTrue(drivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
-        joystick.a().whileTrue(drivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
-        joystick.b().whileTrue(drivetrain.sysIdDynamic(SysIdRoutine.Direction.kForward));
-        joystick.x().whileTrue(drivetrain.sysIdDynamic(SysIdRoutine.Direction.kReverse));
+        // joystick.y().whileTrue(drivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
+        // joystick.a().whileTrue(drivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
+        // joystick.b().whileTrue(drivetrain.sysIdDynamic(SysIdRoutine.Direction.kForward));
+        // joystick.x().whileTrue(drivetrain.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
