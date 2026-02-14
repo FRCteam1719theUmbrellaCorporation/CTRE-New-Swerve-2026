@@ -10,6 +10,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
+import org.littletonrobotics.junction.Logger;
+import org.littletonrobotics.junction.wpilog.WPILOGWriter;
+import org.littletonrobotics.junction.networktables.NT4Publisher;
+
 public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
 
@@ -38,6 +42,14 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledExit() {}
+
+    // @Override
+    // public void robotInit() {
+    //     Logger.recordMetadata("ProjectName", "MyRobotProject");
+    //     Logger.addDataReceiver(new WPILOGWriter());
+    //     Logger.addDataReceiver(new NT4Publisher());
+    //     Logger.start();
+    // }
 
     @Override
     public void autonomousInit() {

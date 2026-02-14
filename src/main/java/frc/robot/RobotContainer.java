@@ -30,7 +30,7 @@ import frc.robot.subsystems.CommandSwerveDrivetrain;
 public class RobotContainer {
     private double MaxSpeedMultiplier = 0.2;
     private double MaxSpeed = MaxSpeedMultiplier * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
-    private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
+    private double MaxAngularRate = RotationsPerSecond.of(0.25).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
 
     private final SendableChooser<Command> autoChooser;
 
@@ -140,7 +140,7 @@ public class RobotContainer {
      public Command getAutonomousCommand() {
     try{
         // Load the path you want to follow using its name in the GUI
-        PathPlannerPath path = PathPlannerPath.fromPathFile("Fancy");
+        PathPlannerPath path = PathPlannerPath.fromPathFile("Beginner1");
 
         // Create a path following command using AutoBuilder. This will also trigger event markers.
         return AutoBuilder.followPath(path);

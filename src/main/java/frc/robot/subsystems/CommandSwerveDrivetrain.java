@@ -35,6 +35,8 @@ import com.ctre.phoenix6.swerve.SwerveModule.SteerRequestType;
 
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 
+import org.littletonrobotics.junction.Logger;
+
 /**
  * Class that extends the Phoenix 6 SwerveDrivetrain class and implements
  * Subsystem so it can easily be used in command-based projects.
@@ -298,6 +300,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
          * Otherwise, only check and apply the operator perspective if the DS is disabled.
          * This ensures driving behavior doesn't change until an explicit disable event occurs during testing.
          */
+        Pose2d pose = getState().Pose;
+        Logger.recordOutput("Odometry/Pose", pose);
+
         if (!m_hasAppliedOperatorPerspective || DriverStation.isDisabled()) {
             DriverStation.getAlliance().ifPresent(allianceColor -> {
                 setOperatorPerspectiveForward(
