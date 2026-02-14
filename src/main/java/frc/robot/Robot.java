@@ -45,6 +45,7 @@ public class Robot extends TimedRobot {
 
     // @Override
     // public void robotInit() {
+    //     super.robotInit();
     //     Logger.recordMetadata("ProjectName", "MyRobotProject");
     //     Logger.addDataReceiver(new WPILOGWriter());
     //     Logger.addDataReceiver(new NT4Publisher());

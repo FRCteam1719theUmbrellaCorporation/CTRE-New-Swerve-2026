@@ -29,6 +29,7 @@ import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveModule.SteerRequestType;
@@ -215,7 +216,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     private void configureAutoBuilder() {
         try {
         var config = RobotConfig.fromGUISettings();
-
+        resetRotation(kBlueAlliancePerspectiveRotation);
         AutoBuilder.configure(
         () -> getState().Pose,    // Supplier of current robot pose
         this::resetPose,          // Consumer for seeding pose against auto
